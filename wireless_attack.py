@@ -1,6 +1,7 @@
 from wifi import *
 from wireless import *
 from urllib2 import *
+from time import *
 
 password_char="abcdefghijklmnopqrstuvwxyz"
 password_char+="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -58,7 +59,10 @@ if __name__ == "__main__":
 	interface = raw_input("which interface >> ")
 	interface = "wlx1cbfcea325e6"
 	cell = wifi_scan(interface)
+	start = time()
 #pw=brute_force(interface, cell)
 	pw=list_attack(interface, cell)
-	print(pw)
+	end = time()
+	print("password : %s\n"%pw)
+	print("time : %d"%(end-start))
 
